@@ -210,7 +210,7 @@ def create_Key_group():
             print 'A new key: %s' % keyName
             KeyPair.save(keyPath)
         else:
-            pass
+            raise
 # creating group
     try:
         securityGroup = conn.get_all_security_groups(groupnames=[groupName])[0]
@@ -219,7 +219,7 @@ def create_Key_group():
             securityGroup = conn.create_security_group(groupName, groupDescription)
             print 'A new security group : %s' % groupName
         else:
-            pass
+            raise
 
 #adding rule:
     try:
@@ -228,7 +228,7 @@ def create_Key_group():
         if e.code == 'InvalidPermission.Duplicate':
             print '%s is  authorized' % groupName
         else:
-            pass
+            raise
 
 
 
